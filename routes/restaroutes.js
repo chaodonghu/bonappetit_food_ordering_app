@@ -25,7 +25,7 @@ module.exports = (knex) => {
         res.json(results);
       });
   });
-  
+
   // Handle request for order completion
   router.post('/:id/complete', (req, res) => {
     res.send('Order completed, restaurant ' + req.params.id);

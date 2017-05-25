@@ -18,7 +18,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Our Story</a></li>
             <li><a href="#">User Success</a></li>
-            <li><a href="#"></a></li>
+            <li><a href="#">hello</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
@@ -26,10 +26,11 @@
           </ul>
         </li>
       </ul>
-      <form id="loginForm" class="navbar-form navbar-right" action="/home" method="POST">
+      <form id="loginForm" class="navbar-form navbar-right">
+        <% if (!user) { %>
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
+          <input id="username" type="text" class="form-control" name="username" value="" placeholder="Username">
         </div>
 
         <div class="input-group">
@@ -38,6 +39,9 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Login</button>
+        <% } else { %>
+          <button id="logout-btn" class="btn btn-primary">logout</button>
+          <% } %>
       </form>
     </div>
   </div>

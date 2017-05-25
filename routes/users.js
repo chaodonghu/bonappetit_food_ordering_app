@@ -9,7 +9,9 @@ module.exports = (knex) => {
       .select()
       .from('foods')
       .then(foods => {
-        res.render('menu', {foods});
+        let user = req.session.username || ''
+
+        res.render('menu', {user, foods});
       })
       .catch(() =>{
         res.status(500).send();

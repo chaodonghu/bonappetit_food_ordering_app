@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Page</title>
+
+  <!-- Bootstrap Files -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Include stylesheets -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/carousel.css">
+
+  <!-- JQuery Modal Plugin -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- authentication script -->
+  <script src="scripts/authentication.js"></script>
+  
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="main-container container text-center">
+        <div class="inner cover">
+          <span class="glyphicon glyphicon-link"></span>
+          <h1>Login</h1>
+
+          <div class="row">
+
+            <div class="col-lg-12">
+              <form class="restaurant-auth">
+                <fieldset>
+                  <legend>Email</legend>
+                  <input id="restaname" type="restaname" name="restaname" size="25" placeholder="Your restaurant username">
+                </fieldset>
+                <br>
+                <fieldset>
+                  <legend>Password</legend>
+                  <input id="pwd" type="password" name="password" size="25" placeholder="Enter Password">
+                </fieldset>
+                <br>
+                <input type ="submit" class="btn btn-shorten" type="button" name ="login"></button>
+              </form>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div id="link"></div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</body>
+</html>

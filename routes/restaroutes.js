@@ -8,12 +8,7 @@ module.exports = (knex) => {
   // For now just renders json
   // Should render restaurant login file
   router.get('/', (req, res) => {
-    knex
-      .select('*')
-      .from('restaurant')
-      .then((results) => {
-        res.json(results);
-      });
+    res.status(200).render('restaurants')
   });
 
   // Render active orders for logged-in restaurant owner
@@ -22,19 +17,20 @@ module.exports = (knex) => {
       .select('*')
       .from('restaurant')
       .then((results) => {
-        res.json(results);
+        res.render('temp_orders.ejs', {results});
       });
   });
 
   // Handle request for order completion
-  router.post('/:id/complete', (req, res) => {
-    res.send('Order completed, restaurant ' + req.params.id);
+  router.post('/complete', (req, res) => {
+    console.log(req.body)
+    res.send('Order completed, restaurant ' + req.body.orderID);
   });
 
   // Login request
   // TODO: Connect to DB for password checking
   router.post('/login', (req, res) => {
-    let restaname = req.body.username;
+    let restaname = req.body.restaname;
     let password = req.body.password;
 
     if (!restaname) return res.sendStatus(403);

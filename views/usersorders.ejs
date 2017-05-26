@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home Page</title>
+  <title>ACTIVE orders page</title>
 
   <!-- Bootstrap Files -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,33 +16,79 @@
   <!-- Include stylesheets -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/carousel.css">
+  <link rel="stylesheet" href="userorders.css" type="text/css">
 
-  <!-- authentication script -->
-  <script src="scripts/authentication.js"></script>
 
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 </head>
 
 <body>
-  <!-- NAV BAR -->
-  <% include ./partials/_header %>
+<% include ./partials/_header %>
 
-    <!-- HEADER OF WEBSITE  -->
-    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
-  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-     <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
-     <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
-    </video>
+    <div class='jumbotron' id='header'>
       <div class='container-fluid'>
-        <h1 class="opa">FOOD FROM TORONTO'S BEST RESTAURANTS</h1>
-        <p class="opa">Indulge</p>
-        <p class="opa"><a href='/users/menu' target='_blank' class='btn btn-success btn-lg'>Menus</a></p>
+        <h1>YOUR ORDERS></h1>
       </div>
+    </div>
+    <div>
+    <table>
+      <tr>
+        <th class="hd">id</th>
+        <th class="hd">user_id</th>
+        <th class="hd">total_price</th>
+        <th class="hd">time</th>
+        <th class="hd">date_created</th>
+        <th class="hd">complete</th>
+
+      </tr>
+      <tr>
+        <td class="text">5</td>
+        <td class="text">4</td>
+        <td class="text">25.55</td>
+        <td class="text">15min</td>
+        <td class="text">2017-6-8</td>
+        <td class="text">Finished</td>
+
+      </tr>
+    </table>
+
+
+    <% orders.forEach((order) => {%>
+
+     <div class="top-item" id="item-details" data-id="<%= orders.id %>" data-user="<%= orders.user_id%>" data-price="<%= order.total_price %>" data-time="<%= orders.time %>" data-finish="<= orders.complete>">
+
+     <table>
+      <tr>
+        <th class="hd">id</th>
+        <th class="hd">user_id</th>
+        <th class="hd">total_price</th>
+        <th class="hd">time</th>
+        <th class="hd">date_created</th>
+        <th class="hd">complete</th>
+
+      </tr>
+      <tr>
+        <td class="text"><%= orders['id']%></td>
+        <td class="text"><%= orders['user_id']%></td>
+        <td class="text"><%= orders['total_price']%></td>
+        <td class="text"><%= orders['time']%></td>
+        <td class="text"><%= orders['data_created']%></td>
+        <td class="text"><%= orders['complete']%></td>
+
+      </tr>
+    </table>
+
+    </div>
+
+    <button class="add-item" type="button" class="btn btn-default btn-md">ORDER REMOVE </button>
+    </div>
+    <%}); %>
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</body>
 
+</body>
 </html>
+

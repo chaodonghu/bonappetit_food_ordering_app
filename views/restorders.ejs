@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACTIVE orders page</title>
+
+  <!-- Bootstrap Files -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Include stylesheets -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/carousel.css">
+  <link rel="stylesheet" type="text/css" href="restorders.css">
+
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+</head>
+
+<body>
+<% include ./partials/_header %>
+
+    <div class='jumbotron' id='header'>
+    <img src="https://eatpizzafresca.com/images/pepperoni_pizza.jpg?crc=4023861219" alt="pizza..yum">
+      <div class='container-fluid'>
+        <h1>ORDERS</h1>
+      </div>
+    </div>
+
+    <div>
+    <table>
+      <tr>
+        <th class="hd">order_id</th>
+        <th class="hd">item_id</th>
+        <th class="hd">quantity</th>
+
+      </tr>
+      <tr>
+        <td class="text">5</td>
+        <td class="text">4</td>
+        <td class="text">2</td>
+
+      </tr>
+    </table>
+    <button id = "but" type="button">Finished</button>
+
+    </div>
+
+    <div>
+
+    <% food_orders.forEach((order) => {%>
+     <div class="top-item" id="item-details"  data-id=" food_orders.order_id %>" data-item="<%= food_orders.item_id%>" data-quantity="<%= food_orders.quantity %>">
+
+    <button class="add-item" type="button" class="btn btn-default btn-md">ORDER COMPLETED </button>
+
+    <div>
+    <table>
+      <tr>
+        <th class="hd">order_id</th>
+        <th class="hd">item_id</th>
+        <th class="hd">quantity</th>
+
+      </tr>
+      <tr>
+        <td class="text">food_orders.order_id</td>
+        <td class="text">food_orders.item_id</td>
+        <td class="text">food_orders.quantity</td>
+
+      </tr>
+    </table>
+    <button id = "but" type="button">Finished</button>
+
+    </div>
+    <%}); %>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    </div>
+    </body>
+
+</html>
+

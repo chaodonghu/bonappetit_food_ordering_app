@@ -1,0 +1,33 @@
+.item {
+    margin: 25px 0;
+
+    .img-responsive {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .top-item {
+
+      p {
+        display: inline;
+      }
+
+      .add-item {
+        background-color: #000000;
+        border-radius: 5px;
+        // border: none;
+        // font-size: x-large;
+        color: white;
+        float: right;
+      }
+    }
+}
+
+#mini-cart {
+  border-radius: 5px;
+  font-size: large;
+  background-color: #6F90A2;
+  color: white;
+  padding: 0 15px;
+  margin: 10px 10px;
+}

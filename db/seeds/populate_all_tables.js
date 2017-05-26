@@ -37,7 +37,9 @@ exports.seed = function(knex, Promise) {
     //seed the restaurant table
   }).then(function() {
       return knex('restaurant').insert({
-        name: 'Smoke\'s Poutinerie'
+        name: 'Smoke\'s Poutinerie',
+        restaname: 'smokies',
+        password: 'pass'
       });
     //seed products table
   }).then(function() {
@@ -93,19 +95,28 @@ exports.seed = function(knex, Promise) {
       return knex('users').insert({
         first_name: 'Dong',
         last_name: 'Hu',
-        phone: '14162770776'
+        phone: '14162770776',
+        username: 'dong',
+        email: '',
+        password: 'password'
       });
   }).then(function() {
       return knex('users').insert({
         first_name: 'Viktor',
         last_name: 'M',
-        phone: '15555555555'
+        phone: '15555555555',
+        username: 'viktmv',
+        email: 'viktmv@icloud.com',
+        password: 'password'
       });
   }).then(function() {
       return knex('users').insert({
         first_name: 'Karun',
         last_name: 'A',
-        phone: '13333333333'
+        phone: '13333333333',
+        username: 'karun',
+        email: '',
+        password: 'password'
       });
       //seed orders table
   });

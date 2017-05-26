@@ -25,17 +25,18 @@
   <% include ./partials/_header %>
 
     <!-- HEADER OF WEBSITE  -->
-    <div class='jumbotron' id='header'>
+
+    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+     <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
+     <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+    </video>
+
       <div class='container-fluid'>
-        <h1>FOOD FROM TORONTO'S BEST RESTAURANTS</h1>
-        <p>Indulge</p>
-        <p><a href='/api/users/menu' target='_blank' class='btn btn-success btn-lg'>Menus</a></p>
+        <h1 class="opa">FOOD FROM TORONTO'S BEST RESTAURANTS</h1>
+        <p class="opa">Indulge</p>
+        <p class="opa"><a href='/users/menu' target='_blank' class='btn btn-success btn-lg'>Menus</a></p>
       </div>
-    </div>
-    <div>
-      <a href='/api/users/menu'><button type='submit' class='menuBtn'><i class='fa fa-list icon' aria-hidden='true'></i>See Our Menu</button></a>
-      <p class='subtitle'>Ready to Order?<a href='#'><span class='mainLinks'>Login</span></a> or <a href='/register'><span class='mainLinks'>Register</span></a></p>
-    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

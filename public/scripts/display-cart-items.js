@@ -31,16 +31,16 @@ const roundMoney = (number) => {
 const createCartItem = (cartItem) => {
   const $item = $(`
     <div class="row" id="cart-item">
-      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-        <img class="img-responsive" src="${cartItem.image_url}">
+      <div class="">
+        <img class="img-responsive" src="${cartItem.image_url}" width=150 height=150>
       </div>
-      <div class="col-lg-6 col-md-5 col-sm-7 col-xs-12">
+      <div class="">
         <ul class="item-info">
           <li class="item-name">${cartItem.name}</li>
           <li class="item-price">$${cartItem.price}</li>
         </ul>
       </div>
-      <div class="col-lg-2 col-md-2 col-sm-10 col-xs-2">
+      <div class="">
         <ul class="adjust-item">
           <li>
             <input class="edit-item-quantity" data-id="${cartItem.item_id}" type="number" class="form-control text-center" value="${cartItem.quantity}"></input>
@@ -50,7 +50,7 @@ const createCartItem = (cartItem) => {
           </li>
         </ul>
       </div>
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-right">
+      <div class="text-right">
         <span class="item-subtotal">$${roundMoney(cartItem.price * cartItem.quantity)}</span>
       </div>
     </div>
@@ -68,43 +68,57 @@ const createSubtotal = () => {
   return subTotal;
 };
 
-$(() => {
+const clearTotal = () =>{
+  $('.empty-notice').remove()
+  $('.totals').remove()
+}
+const renderTotals = () => {
+  createSubtotal();
+
+  const tax = subTotal * 0.13;
+  const total = subTotal + tax;
+
+  $('.order-wrapper').append(`
+    <div class="row totals">
+    <div class="col-12 text-right">
+    <p>Subtotal $${roundMoney(subTotal).toFixed(2)}</p>
+    <p>Tax $${roundMoney(tax).toFixed(2)}</p>
+    <p>Total $${roundMoney(total).toFixed(2)}</p>
+    </div>
+    </div>
+    `);
+  }
+
+const displayCartItems = () => {
+  $('.order-wrapper').html('')
   if (localStorage.getItem('cart') === null || JSON.parse(localStorage.getItem('cart')).foods.length === 0) {
-    $('.order').append(`
-        <div class="row">
-          <div class="col-12 text-center">
-            Please select an item from the <a href="/user/menu">menu</a>.
-          </div>
+
+    if ($('.empty-notice').length === 0) {
+      $('.order-wrapper').append(`
+        <div class="row empty-notice">
+        <div class="col-12 text-center">
+        Please select an item from the <a href="/users/menu">menu</a>.
         </div>
-      `)
-    $('#checkout').attr('class', 'checkout-hidden')
+        </div>
+        `)
+    }
+    //  $('#checkout').attr('class', 'checkout-hidden')
+     $('.totals').remove()
   } else {
+
+    $('.empty-notice').remove()
     const cartItems = JSON.parse(localStorage.getItem('cart')).foods;
 
     for (item in cartItems) {
-      $('.order').append(createCartItem(cartItems[item]));
+      $('.order-wrapper').append(createCartItem(cartItems[item]));
     }
 
-    const renderTotals = () => {
-      createSubtotal();
+    $('.order-wrapper .add-item').on('click', () => {
+      console.log('total added')
+      $('.total-amount').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
+    });
 
-      const tax = subTotal * 0.13;
-      const total = subTotal + tax;
-
-      $('.order').append(`
-        <div class="row totals">
-        <div class="col-12 text-right">
-        <p>Subtotal $${roundMoney(subTotal).toFixed(2)}</p>
-        <p>Tax $${roundMoney(tax).toFixed(2)}</p>
-        <p>Total $${roundMoney(total).toFixed(2)}</p>
-        </div>
-        </div>
-        `);
-    }
-
-    renderTotals();
-
-    $('.delete-item').on('click', (e) => {
+    $('.order-wrapper .delete-item').on('click', (e) => {
       let id = $(e.target).data('id')
       // Remove item from cart and then call deleteCartItem function.
       $(e.target).closest('#cart-item').remove()
@@ -114,10 +128,11 @@ $(() => {
 
       renderTotals();
 
+      $('.total-amount').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
     });
 
 
-    $('.edit-item-quantity').on('click', (e) => {
+    $('.order-wrapper .edit-item-quantity').on('click', (e) => {
       $(e.target).on('change', (e) => {
         let quantity = $(e.target).val();
         let price = Number($(e.target).parents('div#cart-item.row').find('.item-price').html().slice(1));
@@ -128,6 +143,7 @@ $(() => {
 
         $(e.target).parents('div#cart-item.row').children('div:eq(3)').children().html(newPrice);
 
+        $('.total-amount').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
         $('.totals').remove();
 
         renderTotals();
@@ -135,4 +151,33 @@ $(() => {
       })
     })
   }
-});
+}
+$(() => {
+  $('.partial-cart').hide()
+
+  $('.close-btn').click(function(e) {
+    $(this).closest('.partial-cart').hide()
+  })
+
+  $('#footer .checkout .toggle-cart').click(function() {
+    $('.partial-cart').show()
+    displayCartItems()
+    renderTotals();
+  })
+
+  $('.back').click(e => {
+    e.preventDefault()
+    $('.partial-cart').hide()
+  })
+
+  $('.partial-cart').click(function(e) {
+    let cart = document.querySelector('.partial-cart')
+    if (e.target.contains(cart)) $('.partial-cart').hide()
+  })
+
+  $('.add-item').on('click', () => {
+    console.log('total added')
+    $('.total-amount').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
+  });
+
+})

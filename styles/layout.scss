@@ -5,19 +5,60 @@ body {
 body h1 {
   color: #244751;
 }
+#main-nav {
+  opacity: 0.5;
+  background-color: rgba(0, 0, 0, .5);
+  .input-group {
+
+  }
+  &:hover {
+    opacity: .9;
+  }
+}
 
 #header {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/banner.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   color: #fff;
-
+  max-width: 50%;
+  margin: 50px auto;
+  height: 70%;
+  min-width: 400px;
   h1 {
     font-size: 3.2rem;
     text-align: center;
   }
   p {
+    margin-top: 50px;
     text-align: center;
 
   }
+
+  .ready-links {
+    margin-top: 50px;
+  }
+  .subtitle span.main-links {
+    color: #fff;
+    font-style: italic;
+  }
+  .subtitle span.main-links:hover {
+    text-decoration: underline;
+    color: #fff;
+  }
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
 }
 
 .jumbotron2 {

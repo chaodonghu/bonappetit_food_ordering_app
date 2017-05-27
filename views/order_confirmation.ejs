@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+  <!-- Nav bar -->
+
+  <% console.log(locals) %>
+  <div class="container order">
+    <div class="row">
+      <div class="col-12 text-center title">
+        <h2>Your order is on the way.</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center eta">
+        <% if (locals.foods[0].time) { %>
+        <h4><strong><%= locals.foods[0].time %> minutes</strong> until you're order is ready.</h4>
+        <% } else { %>
+          <h4><strong>20 minutes</strong> until your order is ready.</h4>
+        <% } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-id">
+        Order ID: <%= locals.orderID %>
+      </div>
+    </div>
+    <div class="row">
+    </div>
+    <% let subTotal = 0 %>
+    <% locals.foods.forEach((food) => {%>
+    <div class="row">
+      <div class="col-6 text-right">
+        <%= food.quantity %> x <%= food.name %>
+      </div>
+      <div class="col-6 text-left">
+        $<%= food.price * food.quantity %>
+      </div>
+    </div>
+    <% subTotal += food.price * food.quantity %>
+    <% }); %>
+    <div class="row totals">
+      <div class="col-10 text-right">
+        <p>Subtotal $<%= subTotal %><br>
+        Tax $<%= ((Math.round(subTotal * 13)) / 100).toFixed(2) %><br>
+        Total $<%= ((Math.round(subTotal * 113)) / 100).toFixed(2) %></p>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

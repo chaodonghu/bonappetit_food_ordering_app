@@ -20,22 +20,9 @@ $(() => {
   createSubtotal();
 
   if (createSubtotal() == 0) {
-    $('#total').append(0)
+    $('.total-amount').append(0)
   } else {
-    $('#total').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
+    $('.total-amount').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
   }
 
-  $('.add-item').on('click', () => {
-    $('#total').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
-  });
-
-  $('.delete-item').on('click', () => {
-    $('#total').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
-  });
-
-  $('.edit-item-quantity').on('click', (e) => {
-    $(e.target).on('change', (e) => {
-      $('#total').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
-    })
-  })
 });

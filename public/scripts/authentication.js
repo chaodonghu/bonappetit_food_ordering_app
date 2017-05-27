@@ -1,7 +1,8 @@
 $(() => {
   $('#loginForm').on('submit', function(e) {
     e.preventDefault()
-
+    console.log('auth script running')
+    
     let username = $('#username').val()
     let password = $('#pwd').val()
 

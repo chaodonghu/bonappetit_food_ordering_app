@@ -1,0 +1,19 @@
+<div class="partial-cart">
+  <div class="container order">
+    <button class="close-btn">X</button>
+    <div class="row">
+      <div class="col-12">
+        <a class="back">← Keep Shopping</a>
+      </div>
+      <div class="container order-wrapper">
+      </div>
+    </div>
+  </div>
+
+  <div class="upper-footer" id="footer">
+    <form method="POST" action="/users/order" id="checkout">
+      <input id="order-submit" type="submit" class="checkout" class="btn btn-primary btn-lg" value="Checkout"></input>
+    </form>
+    <span class="total upper">  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Total: $<span class="total-amount" id="total"></span></span>
+  </div>
+</div>

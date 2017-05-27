@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Order Status</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/order_status.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="/scripts/order_status.js"></script> -->
+  </head>
+  <body>
+  <!-- Nav bar -->
+
+  <div class="container-fluid main-title">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="title">Order Status</h3>
+      </div>
+    </div>
+  </div>
+  <% for (let i = 0; i < userOrders.length; i++) { %>
+  <div class="container-fluid sub-table">
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <tr>
+            <th>Order</th>
+            <th class="right">Details</th>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td class="right"><%= userOrders[i].id %></td>
+          </tr>
+          <tr>
+            <td>Prepared For</td>
+            <td class="right"><%= userOrders[i].first_name %> <%= userOrders[i].last_name %></td>
+          </tr>
+          <% for (let j = 0; j < foodOrders.length; j++) { %>
+            <% if (userOrders[i].id === foodOrders[j].id) { %>
+          <tr>
+            <td><%= foodOrders[j].quantity %>  of <%= foodOrders[j].name %></td>
+            <td class="right">$<%= foodOrders[j].price %> ea.</td>
+          </tr>
+            <% } %>
+          <% } %>
+          <tr>
+            <td class="sub-table-total">Total Price</td>
+            <td class="sub-table-total right">$<%= userOrders[i].total_price %><td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-left est-time">
+        <span class="sub-table-time">EST. Time</span><br/>
+        <form method="POST" action="/restaurants/order_status/<%= userOrders[i].id %>" class="oid" id="<%= i %>" data-id="<%= userOrders[i].id %>">
+          <div class="input-group">
+           <span class="input-group-btn">
+            <button class="btn btn-success" name="go" type="submit">Go!</button>
+           </span>
+           <input type="text" placeholder="minutes" name="time" value="0" class="form-control txt-input">
+         </div>
+        </form>
+       <form method="POST" action="/restaurants/done/<%= userOrders[i].id %>" class="done" id="<%= i %>" data-id="<%= userOrders[i].id %>">
+        <div class="input-group">
+           <span class="input-group-btn">
+            <button class="btn btn-info" name="done" type="submit">Done!</button>
+           </span>
+        </div>
+       </form>
+      </div>
+    </div>
+  </div>
+  <% } %>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

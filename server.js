@@ -7,8 +7,10 @@ const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || 'development';
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('cookie-session')
+const session = require('cookie-session');
 const sass = require('node-sass-middleware');
+const mid = require('./middleware/twilioNotifications')
+const twilio = require('twilio');
 
 const app = express();
 
@@ -26,6 +28,7 @@ const usersRoutes = require('./routes/users');
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
+app.use(mid.notifyOnError);
 
 // Log knex SQL queries to STDOUT as well
 app.use(knexLogger(knex));
@@ -40,7 +43,7 @@ app.use(session({
   name: 'session',
   keys: ['andrew_thomas_par_supa_secret', 'key2'],
   maxAge: 24 * 60 * 60 * 1000
-}))
+}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/styles', sass({
@@ -62,10 +65,10 @@ app.use('/restaurants', restaroutes(knex));
 // Home page
 
 app.get('/', (req, res) => {
-  let user
-  console.log(req.session)
+  let user;
+  console.log(req.session);
   if (req.session.username) user = req.session.username;
-  res.status(200).render('index.ejs', {user})
+  res.status(200).render('index.ejs', {user});
 });
 
 // Login
@@ -83,14 +86,14 @@ app.post('/login', (req, res) => {
   })
   .select()
   .then((userData) => {
-    if (userData.length === 0) return res.sendStatus(404)
-    req.session.username = userData[0].username
-    res.status(200).send(userData)
+    if (userData.length === 0) return res.sendStatus(404);
+    req.session.username = userData[0].username;
+    res.status(200).send(userData);
   })
   .catch(err => {
-    console.log('something happend', err)
-    res.sendStatus(500)
-  })
+    console.log('something happend', err);
+    res.sendStatus(500);
+  });
 
 });
 

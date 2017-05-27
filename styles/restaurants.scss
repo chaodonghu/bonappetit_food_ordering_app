@@ -1,0 +1,47 @@
+html {
+
+}
+
+body {
+}
+
+body h1 {
+  color: #244751;
+}
+
+.site-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #EEE;
+  background: url('../images/bg-restaurants.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #000;
+}
+
+#header {
+  max-width: 60%;
+  background:
+  linear-gradient( rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0.5) );
+
+  h1 {
+    color: #fff;
+    font-size: 3.2rem;
+    text-align: center;
+  }
+  p {
+    color: #fff;
+    text-align: center;
+
+  }
+  .register-link {
+    color: #BADA55;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}

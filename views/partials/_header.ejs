@@ -1,4 +1,6 @@
-<nav class="navbar navbar-inverse">
+
+<nav id="main-nav" class="navbar">
+>>>>>>> master
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -12,6 +14,21 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/restaurants">Restauranteur</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">User Success</a></li>
+            <li><a href="#">hello</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
       <form id="loginForm" class="navbar-form navbar-right">
         <% if (!user) { %>
         <div class="input-group">

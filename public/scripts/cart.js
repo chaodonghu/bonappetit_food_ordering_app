@@ -32,3 +32,18 @@ const addItem = (id, name, price, img) => {
   }
   setCart(cart)
 }
+
+function toggleTotal() {
+
+  //
+  // $('.delete-item').on('click', () => {
+  //   console.log('total subtracted')
+  //   $('.total-amount').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
+  // });
+  //
+  // $('.edit-item-quantity').on('click', (e) => {
+  //   $(e.target).on('change', (e) => {
+  //     $('.total-amount').html('').append(roundMoney(createSubtotal() * 1.13).toFixed(2));
+  //   })
+  // })
+}

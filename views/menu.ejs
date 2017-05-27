@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
   <link rel="stylesheet" href="/styles/footer.css">
 
-
   <!-- Bootstrap Files -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -24,8 +23,6 @@
   <!-- authentication script -->
   <script src="scripts/authentication.js"></script>
 
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -60,15 +57,19 @@
         <p>DIV HERE</p>
       </div>
 
-      <div id="footer">
-        <form method="GET" action="/users/cart" id="checkout">
-          <input type="submit" class="checkout" class="btn btn-primary btn-lg" value="Checkout"></input>
+      <div class="lower-footer" id="footer">
+        <form class="checkout">
+          <input class="toggle-cart" type="button" class="checkout" class="btn btn-primary btn-lg" value="Checkout">
         </form>
-        <span class="total">  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Total: $<span id="total"></span></span>
+        <span class="total">  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Total: $<span class="total-amount" id="total"></span></span>
       </div>
+
+      <% include ./partials/_cart.ejs %>
 
       <script type="text/javascript" src="/scripts/cart.js"></script>
       <script type="text/javascript" src="/scripts/menu-add-to-cart.js"></script>
+      <script type="text/javascript" src="/scripts/order-submit.js"></script>
+      <script type="text/javascript" src="/scripts/display-cart-items.js"></script>
       <script type="text/javascript" src="/scripts/footer.js"></script>
 </body>
 

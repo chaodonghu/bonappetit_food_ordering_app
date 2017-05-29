@@ -17,7 +17,7 @@
   <div class="container-fluid main-title">
     <div class="row">
       <div class="col-12 text-center">
-        <h3 class="title">Order Status</h3>
+        <h3 class="title">Pending Orders</h3>
       </div>
     </div>
   </div>
@@ -47,8 +47,8 @@
     </div>
     <div class="row">
       <div class="col-12 text-left est-time">
-        <span class="sub-table-time">EST. Time</span><br/>
-        <form method="POST" action="/restaurants/order_status/<%= i %>" class="oid" id="<%= i %>" data-id="<%= i%>">
+        <span class="sub-table-time">EST. Time</span><br>
+        <form method="POST" action="/restaurants/order_status/<%= i %>" class="oid" id="<%= i %>" data-id="<%= i %>">
           <div class="input-group">
            <span class="input-group-btn">
             <button class="btn btn-success" name="go" type="submit">Go!</button>

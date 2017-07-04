@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const PORT = process.env.PORT || 8080;
 
@@ -21,6 +21,8 @@ const knexLogger = require('knex-logger');
 // Seperated Routes for each resource
 const restaroutes = require('./routes/restaroutes');
 const usersRoutes = require('./routes/users');
+
+const pg = require('pg');
 
 // const stripe = require('stripe')(
 //   stripeKey

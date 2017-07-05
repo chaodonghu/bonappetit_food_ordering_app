@@ -10,7 +10,10 @@ A food pick-up ordering app built for an icecream parlor but scalable to include
 * https://bon-appetit-food-app.herokuapp.com/
 
 ```
-Login with - username: dong - password: password
+User login with - username: dong - password: password
+```
+```
+Restaurant/Admin login with - username: icecream - password: password
 ```
 
 ## Team Members

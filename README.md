@@ -19,22 +19,11 @@ Login with - username: dong - password: password
 * Karunvir Singh
 
 ## Project Screenshots
-![](./assets/screenshot1.png)
+![](./assets/1.gif)
 
 ```
 Index Page for the user and restaurant to be able to login.
-```
-
-![](./assets/screenshot2.png)
-
-```
-Menu.
-```
-
-![](./assets/screenshot3.png)
-
-```
-Cart allowing users to edit their order (increase, decrease or remove items).
+Menu and mini-cart allowing users to edit their order (increase, decrease or remove items).
 ```
 
 ![](./assets/screenshot4.png)

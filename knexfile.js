@@ -30,7 +30,6 @@ module.exports = {
     pool: {
       min: 2,
       max: 10,
-      ping: function (conn, cb) { conn.query('SELECT 1', cb); }  }
     },
     migrations: {
       directory: './db/migrations',

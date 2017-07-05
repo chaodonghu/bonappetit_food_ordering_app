@@ -2,7 +2,7 @@
 
 A food pick-up ordering app built for an icecream parlor but scalable to include multiple restaurants as a midterm project at Lighthouse Labs with a team of 3. The app allows a customer(user) to place an order and a restaurant to notify the user the status of their order via a dynamic order status page and text message notification.
 
-* Front-end built using Bootstrap, Javascript, and HTML/CSS
+* Front-end built using HTML/CSS/SASS, Bootstrap, Javascript, AJAX
 * Backend was built using Node.js, Express, and PostreSQL
 * Twilio API (modern telecomm API service) was used to allow text message or audio communication between the customer and restaurant
 
@@ -23,25 +23,24 @@ Login with - username: dong - password: password
 
 ```
 Index Page for the user and restaurant to be able to login.
+```
+```
 Menu and mini-cart allowing users to edit their order (increase, decrease or remove items).
 ```
 
-![](./assets/screenshot4.png)
+![](./assets/2.gif)
 
 ```
-Order confirmation page is displayed to the user once "Submit Order!" button is pressed.
+Order confirmation page is displayed to the user once "Submit Order!" button is pressed. Twilio message is sent to customer's number.
 ```
-
-![](./assets/screenshot5.png)
-
 ```
 User's active order page. They are able to see their order's estimated time of arrival (ETA), if their order has been completed and their order's details.
 ```
 
-![](./assets/screenshot6.png)
+![](./assets/3.gif)
 
 ```
-Restaurant's active order page that allows the restaurant to update the ETA and order completion status. Once 'done' is pressed, the order is removed from the restaurant's order page.
+Restaurant's active order page that allows the restaurant to update the ETA and order completion status. Once 'done' is pressed, the order is removed from the restaurant's order page and user is notified by text message.
 ```
 
 ## Getting Started

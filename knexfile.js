@@ -26,10 +26,11 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: process.env.DATABASE_URL + '?ssl=true',
-    debug: true, 
+    debug: true,
     pool: {
       min: 2,
-      max: 10
+      max: 10,
+      ping: function (conn, cb) { conn.query('SELECT 1', cb); }  }
     },
     migrations: {
       directory: './db/migrations',

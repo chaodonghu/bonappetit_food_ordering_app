@@ -1,6 +1,8 @@
 'use strict';
 
-if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 const PORT = process.env.PORT || 8080;
 
@@ -15,6 +17,9 @@ const app = express();
 
 const knexConfig = require('./knexfile');
 const knex = require('knex')(knexConfig[ENV]);
+console.log(1, knexConfig);
+console.log(2, knexConfig[ENV]);
+console.log(3, knex);
 const morgan = require('morgan');
 const knexLogger = require('knex-logger');
 

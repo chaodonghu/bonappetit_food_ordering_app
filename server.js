@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const PORT = process.env.PORT || 8080;
 
-const ENV = process.env.ENV || 'development';
+const ENV = process.env.NODE_ENV  || 'development';
 // const stripeKey = process.env.STRIPE_KEY;
 const express = require('express');
 const bodyParser = require('body-parser');

@@ -1,6 +1,8 @@
 # Bon Appetit
 
-A food pick-up ordering app built for an icecream parlor but scalable to include multiple restaurants as a midterm project at Lighthouse Labs with a team of 3. The app allows a customer(user) to place an order and a restaurant to notify the user the status of their order via a dynamic order status page and text message notification.
+​An application resembling UberEats, Bon Appetit is a food pick-up ordering system for a theoretical ice cream parlor. Customers can place orders and receive status updates via a dynamic order status page and text message notifications.
+
+The app allows a customer(user) to place an order and a restaurant to notify the user the status of their order via a dynamic order status page and text message notification.
 
 * Front-end built using HTML/CSS/SASS, Bootstrap, Javascript, AJAX
 * Backend was built using Node.js, Express, and PostreSQL
